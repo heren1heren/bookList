@@ -1,12 +1,14 @@
+import Book from './book.js'; // using export default so we can't have {} around the import variables
+import UI from './UI.js'; // UI is a class from other file
 import './style.css';
+import './bootstrap.css';
+// book class: represents a book
 
-console.log('hello world');
-const name = 'James';
+// UI class: Handle UI Tasks
+// Store Class: Handles Storage
 
-const person = { first: name };
+// Event: display Books
+document.addEventListener('DOMContentLoaded', UI.displayBooks);
+// Event: Add a Book
 
-console.log(person);
-
-const sayHelloLinting = (fName) => {
-  console.log(`Hello linting, ${fName}`);
-};
+// Event: Remove a Book
