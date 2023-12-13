@@ -1,18 +1,8 @@
+import Store from './store.js';
+
 export default class UI {
   static displayBooks() {
-    const StoreBooks = [
-      {
-        title: 'book One',
-        author: 'John Doe',
-        isbn: '343433',
-      },
-      {
-        title: 'book Two',
-        author: 'sucker Doe',
-        isbn: '343433',
-      },
-    ];
-    const books = StoreBooks;
+    const books = Store.getBooks();
 
     books.forEach((book) => UI.addBookToList(book));
   }
@@ -38,14 +28,14 @@ export default class UI {
 
   static showAlert(message, className) {
     const div = document.createElement('div');
-    div.className = `alert alert-${className}`; // using booststrap ...
+    div.className = `alert alert-${className}`; // using boost strap ...
     const messageElement = document.createTextNode(message);
     div.appendChild(messageElement);
 
     const container = document.querySelector('.container');
     const existingDiv = container.querySelector('.alert');
 
-    if (existingDiv) container.removeChild(existingDiv);
+    if (existingDiv) existingDiv.remove();
     const form = document.querySelector('#book-form'); // for insert method
     container.insertBefore(div, form);
   }
